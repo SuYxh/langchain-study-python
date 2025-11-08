@@ -1,0 +1,37 @@
+[project]
+name = "langchain-v0.3-py"
+version = "0.1.0"
+description = "LangChain v0.3 模板项目，提供统一的大语言模型配置和初始化功能，支持多种模型提供商集成"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "alibabacloud-bailian20231229==1.8.2",
+    "asyncio>=4.0.0",
+    "bs4>=0.0.2",
+    "dashscope>=1.23.5",
+    "gradio>=5.49.1",
+    "langchain>=0.3.25",
+    "langchain-community>=0.3.24",
+    "langchain-experimental>=0.3.4",
+    "langchain-mcp-adapters>=0.1.1",
+    "langchain-ollama>=0.3.2",
+    "langchain-openai>=0.3.16",
+    "langchain-redis>=0.2.4",
+    "langgraph>=0.6.0",
+    "langgraph-checkpoint-mongodb>=0.1.4",
+    "langgraph-checkpoint-redis>=0.0.7",
+    "langgraph-supervisor>=0.0.29",
+    "langmem>=0.0.30",
+    "openai>=1.78.0",
+    "psutil>=7.0.0",
+    "pyautogui>=0.9.54",
+    "pydantic>=2.11.4",
+    "pymysql>=1.1.1",
+    "python-dotenv>=1.0.0",
+    "selenium>=4.34.2",
+    "sentence-transformers>=5.1.2",
+]
+
+[tool.uv]
+# 启用包模式
+package = true
