@@ -12,7 +12,9 @@ model_name = os.getenv("QINIU_MODEL_GPT_OSS_20B", "")
 api_key_str = os.getenv("QINIU_API_KEY", "")
 api_key = SecretStr(api_key_str) if api_key_str else None
 
-chat_model = ChatOpenAI(model=model_name, base_url=base_url, api_key=api_key)
+chat_model = ChatOpenAI(
+    model=model_name, base_url=base_url, api_key=api_key, streaming=True
+)
 
 
 sys_message = SystemMessage(
@@ -28,7 +30,14 @@ human_message1 = HumanMessage(
 
 messages = [sys_message, human_message, human_message1]
 
-# 调用大模型，传入messages
-response = chat_model.invoke(messages)
+stream_response = chat_model.stream(messages)
 
-print(response.content)
+# 流式调用LLM获取响应
+print("开始流式输出：")
+for chunk in stream_response:
+    # 逐个打印内容块
+    print(
+        chunk.content, end="", flush=True
+    )  # 刷新缓冲区 (无换行符，缓冲区未刷新，内容可能不会立即显示)
+
+print("\n流式输出结束")
