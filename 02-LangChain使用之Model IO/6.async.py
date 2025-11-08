@@ -18,25 +18,32 @@ chat_model = ChatOpenAI(
     model=model_name, base_url=base_url, api_key=api_key, streaming=True
 )
 
+
 # 同步调用（对比组）
 def sync_test():
-    messages1 = [SystemMessage(content="你是一位乐于助人的智能小助手"),
-                 HumanMessage(content="请帮我介绍一下什么是机器学习"),]
+    messages1 = [
+        SystemMessage(content="你是一位乐于助人的智能小助手"),
+        HumanMessage(content="请帮我介绍一下什么是机器学习"),
+    ]
     start_time = time.time()
     response = chat_model.invoke(messages1)  # 同步调用
     duration = time.time() - start_time
     print(f"同步调用耗时: {duration:.2f}秒")
     return response, duration
 
+
 # 异步调用（实验组）
 async def async_test():
-    messages1 = [SystemMessage(content="你是一位乐于助人的智能小助手"),
-                 HumanMessage(content="请帮我介绍一下什么是机器学习"),]
+    messages1 = [
+        SystemMessage(content="你是一位乐于助人的智能小助手"),
+        HumanMessage(content="请帮我介绍一下什么是机器学习"),
+    ]
     start_time = time.time()
     response = await chat_model.ainvoke(messages1)  # 异步调用
     duration = time.time() - start_time
     print(f"异步调用耗时: {duration:.2f}秒")
     return response, duration
+
 
 # 运行测试
 if __name__ == "__main__":
