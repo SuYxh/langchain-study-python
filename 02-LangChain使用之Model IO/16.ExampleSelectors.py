@@ -115,7 +115,7 @@ def test_and_explain(user_input):
 test_and_explain("我该如何清空一个列表？")
 
 # 测试案例2：与函数定义相关（语义匹配）
-test_and_explain("写个函数算矩形周长")
+# test_and_explain("写个函数算矩形周长")
 
 # 测试案例3：与字典相关
-test_and_explain("怎么获取字典里的值？")
+# test_and_explain("怎么获取字典里的值？")
