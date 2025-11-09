@@ -60,8 +60,6 @@ print("--------------------------------------------------------------")
 print("\n\n")
 
 
-
-
 # 定义HumanMessage对象
 human_message = HumanMessage(content="学习编程的最好方法是什么？")
 # 3.定义AIMessage对象
@@ -80,10 +78,7 @@ human_prompt = "用{word_count}个词总结我们到目前为止的对话"
 human_message_template = HumanMessagePromptTemplate.from_template(human_prompt)
 
 chat_prompt = ChatPromptTemplate.from_messages(
-    [
-        MessagesPlaceholder(variable_name="conversation"),
-        human_message_template
-    ]
+    [MessagesPlaceholder(variable_name="conversation"), human_message_template]
 )
 
 # 6.格式化聊天消息提示词模板
