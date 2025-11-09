@@ -35,7 +35,7 @@ few_shot_prompt = FewShotChatMessagePromptTemplate(
     examples=examples, example_prompt=example_prompt  # 示例组  # 示例提示词模板
 )
 print("few_shot_prompt", few_shot_prompt)
-print('\n\n')
+print("\n\n")
 
 
 # 输出完整提示词的消息模板
@@ -43,10 +43,10 @@ final_prompt = ChatPromptTemplate.from_messages(
     [("system", "你是一个数学奇才"), few_shot_prompt, ("human", "{input}")]
 )
 print("final_prompt", final_prompt)
-print('\n\n')
+print("\n\n")
 
 
 resp = chat_model.invoke(
-    final_prompt.invoke(input="2🦜4") # pyright:ignore[reportArgumentType]
-)  
+    final_prompt.invoke(input="2🦜4")  # pyright:ignore[reportArgumentType]
+)
 print(resp.content)
