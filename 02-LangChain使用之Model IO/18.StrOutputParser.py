@@ -23,10 +23,10 @@ messages = [
 result = chat_model.invoke(messages)
 print(result)
 print(type(result))
-print('\n')
-token_usage = result.response_metadata.get('token_usage', {})
+print("\n")
+token_usage = result.response_metadata.get("token_usage", {})
 print(token_usage)
-print('\n\n')
+print("\n\n")
 
 parser = StrOutputParser()
 
@@ -35,4 +35,3 @@ response = parser.invoke(result)
 
 print(response)
 print(type(response))
-
